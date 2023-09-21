@@ -1,5 +1,6 @@
 from apikey import api_key
 import requests
+import json
 
 OMW_Endpoint = "https://api.openweathermap.org/data/3.0/onecall"
 
@@ -10,4 +11,10 @@ parameters = {
 }
 
 response = requests.get(OMW_Endpoint, params=parameters)
-print(response.json())
+weather_data = response.json()
+
+json_object = json.dumps(weather_data, indent=4)
+
+with open("weather_data.json", "w") as outfile:
+    outfile.write(json_object)
+
