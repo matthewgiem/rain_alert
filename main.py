@@ -1,6 +1,11 @@
-from apikey import api_key
+from apikey import api_key, AuthToken
 import requests
 import json
+from twilio.rest import Client
+
+auth_token = AuthToken
+account_sid = "AC1a7a378412d057b98b14a787b8f71174"
+client = Client(account_sid, auth_token)
 
 
 # use to imoprt weather data from openweathermap so as to not use up all my free api calls
@@ -52,5 +57,11 @@ for x in hourly:
             print("Cloudy")
 
 
+message = client.messages.create(
+    from_="+18449161624",
+    body="Hello World",
+    to="+14155900939"
+)
 
-
+print(message.sid)
+print(message.status)
