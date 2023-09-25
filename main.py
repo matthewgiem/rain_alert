@@ -40,7 +40,16 @@ for x in hourly:
             print("Thunderstorm")
         elif x["weather"][0]["id"] > 299 and x["weather"][0]["id"] < 400:
             print("Drizzle")
-        elif x["weather"][0]["id"] > 499 and 
+        elif x["weather"][0]["id"] > 499 and x["weather"][0]["id"] <600:
+            print("Rain")
+        elif x["weather"][0]["id"] > 599 and x["weather"][0]["id"] < 700:
+            print("Snow")
+        elif x["weather"][0]["id"] > 699 and x["weather"][0]["id"] < 800:
+            print("Haze")
+        elif x["weather"][0]["id"] == 800:
+            print("Clear")
+        elif x["weather"][0]["id"] > 800 and x["weather"][0]["id"] < 900:
+            print("Cloudy")
 
 
 
